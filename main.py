@@ -1,6 +1,8 @@
 import pyautogui
 import pyperclip
 import os
+import sys
+import sched
 from datetime import datetime
 
 def get_file_name():
@@ -83,18 +85,31 @@ def export_chat_dump(file_name):
     # export success
     return True
 
-# config
-img_path = os.path.dirname(os.path.realpath(__file__)) + '/img/'
-conf = 0.90
-pyautogui.PAUSE = 0.5
-
-if __name__ == "__main__":
-    print_banner()
-    print_monitor_spec()
-
+def run_exporter(scheduler, interval_in_seconds):
     file_name= get_file_name()
     is_export_success= export_chat_dump(file_name)
 
     if is_export_success:
-        print()
         print('Export done. File name: ' + file_name)
+
+    sys.stdout.flush()
+    scheduler.enter(interval_in_seconds, 1, run_exporter, argument=(scheduler, interval_in_seconds))
+
+# export config
+img_path = os.path.dirname(os.path.realpath(__file__)) + '/img/'
+conf = 0.90
+pyautogui.PAUSE = 0.5
+
+# scheduler config
+interval_in_seconds = 1800 # 30 minutes
+
+if __name__ == "__main__":
+    print_banner()
+    print_monitor_spec()
+    print()
+    sys.stdout.flush()
+
+    scheduler = sched.scheduler()
+    scheduler.enter(interval_in_seconds, 1, run_exporter, argument=(scheduler, interval_in_seconds))
+    scheduler.run()
+    

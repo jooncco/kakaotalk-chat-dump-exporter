@@ -1,13 +1,24 @@
-# 모듈 설치 스크립트
-opencv 모듈을 설치하지 않으면 confidence 관련 오류가 납니다.
+# Getting Started
+
+## 1. Install Python
+
+https://www.python.org/downloads/
+
 ```zsh
-pip install opencv-python
-pip install pyperclip
-pip install pyautogui
-pip install pillow
+$ python --version
+$ pip --version
 ```
 
-# 실행 스크립트
+## 2. Install Dependencies
+
+```zsh
+pip install opencv-python pyperclip pyautogui pillow
 ```
+
+## 3. Open Kakaotalk Chat Window
+
+## 4. Run
+
+```zsh
 python main.py
 ```
