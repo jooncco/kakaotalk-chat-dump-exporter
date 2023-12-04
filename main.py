@@ -45,7 +45,7 @@ def export_chat_dump(file_name):
                 print('Failed: click menu')
                 return False
 
-    # click 'chat dump'
+    # click '대화 내용'
     try:
         click_img(img_path + 'chat_dump.png')
     except:
@@ -55,7 +55,7 @@ def export_chat_dump(file_name):
             print('Failed: click chat_dump')
             return False
 
-    # click 'export chat'
+    # click '대화 내보내기'
     try:
         click_img(img_path + 'export_chat.png')
     except:
@@ -69,7 +69,7 @@ def export_chat_dump(file_name):
     pyautogui.hotkey('ctrl', 'v')
     pyautogui.keyDown('enter')
     
-    # click confirm button
+    # click '확인'
     try:
         click_img(img_path + 'confirm.png')
     except:
