@@ -5,7 +5,7 @@ This python application automates the process of exporting chat data of an open 
 
 ### POINT OF THIS TOOL
 
-- An alternative for scrapping Kakaotalk chat data, since official Kakaotalk API doesn't provide such functionality.
+- Official Kakaotalk API doesn't provide export contents functionality. This can be an alternative for export.
 - Gives an example usage of opencv-python library.
 
 ### SETUP
